@@ -76,17 +76,13 @@ module Hanami
       # @api private
       # @since 2.0.0
       def log_request(env, status, elapsed)
-        logger.tagged(:rack) do
-          logger.info(data(env, status: status, elapsed: elapsed))
-        end
+        logger.info(data(env, status: status, elapsed: elapsed))
       end
 
       # @api private
       # @since 2.0.0
       def log_exception(env, exception, status, elapsed)
-        logger.tagged(:rack) do
-          logger.error(exception, **data(env, status: status, elapsed: elapsed))
-        end
+        logger.error(exception, **data(env, status: status, elapsed: elapsed))
       end
 
       private
